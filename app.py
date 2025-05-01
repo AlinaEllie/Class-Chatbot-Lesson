@@ -6,7 +6,7 @@ from datetime import date
 today = date.today().strftime("%A, %B %d, %Y")
 
 # OpenRouter API base and key
-openai.api_base = "https://urldefense.com/v3/__https://openrouter.ai/api/v1__;!!HoV-yHU!rUeiHQhQFnV3-Qifgn1n8t1BcM50s35SyIWI7JoWziIbHfC76_Ebm2pnuh7OH_nClQI1X3O9LXhwwIfJzLF_jOwUCxI$ "
+openai.api_base = "https://openrouter.ai/api/v1"
 openai.api_key = st.secrets["openrouter_key"]
 
 st.title("AI Chatbot")
@@ -24,4 +24,4 @@ if submitted and user_input:
             {"role": "user", "content": user_input}
         ]
     )
-    st.write("Bot:", response.choices[0].message["content"])
+    st.write("Bot:", response.choices[0].message.content)
